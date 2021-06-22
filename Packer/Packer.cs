@@ -15,6 +15,15 @@ namespace Packer
             IPackageLineItemValidator packageLineItemValidator = new PackageLineItemValidator();
             IPackageSelector packageSelector = new PackageSelector();
 
+            /*
+            * parse the source file and return list of packages
+            *  
+            * 1. Get One Package (one line) at a time
+            * 2. Validate all the conditions i.e. check weight, price etc
+            * 3. Pick best combinations of packages
+            * 
+            */
+
             List<PackageLineItem> packageLineItems = packageLineItemParser.Parse(filePath);
 
             var packages = new StringBuilder();
